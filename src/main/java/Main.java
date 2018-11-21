@@ -7,15 +7,41 @@ public class Main {
 
     public static void main(String[] args){
 
-        String queryType = args[0];
-        String baseUrl = "http://localhost:6006";
-        String webContextPath="/primzahl";
-
-        Client client = ClientBuilder.newClient();
-        WebTarget target = client.target(baseUrl);
-
-        String result = target.path(webContextPath)
-                .queryParam("name", name)
-                .request(MediaType.TEXT_PLAIN).get(String.class);
+        Main main = new Main();
+        main.start(args);
     }
+
+
+
+    private void start(String[] args){
+        if(args.length == 0|| args[0].equalsIgnoreCase("help")){
+
+            System.out.printf("" +
+                    "Client zum Berechnen von Primzahlen %n" +
+                    "---------------------------------- %n" +
+                    "Parameter: " +
+                    "<IP-Adresse Server> [1|2|3] %n" +
+                    "Das erste Argument, welches übergeben wird, ist die IP-Adresse der Servers %n" +
+                    "1: Primzahlen werden als Int Array zurueckgeben %n" +
+                    "2: Primzahlen werden als String zurückgegeben %n" +
+                    "3: Primzahlen als Datenstruktur %n" +
+                    "" +
+                    "" +
+                    "" +
+                    "");
+        }
+
+        if(args.length >= 2){
+            PrimzahlService primzahlService = new PrimzahlService();
+            String result = primzahlService.request(args[0],Integer.parseInt(args[1]));
+            System.out.println(result);
+        }
+
+
+
+
+
+    }
+
+
 }
