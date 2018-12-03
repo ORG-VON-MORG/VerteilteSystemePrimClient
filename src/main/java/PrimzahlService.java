@@ -18,7 +18,7 @@ public class PrimzahlService {
 
         String result = target.path(ENDPOINT)
                 .queryParam("parameter", parameter)
-                .request(MediaType.TEXT_PLAIN).get(String.class);
+                .request(MediaType.APPLICATION_JSON).get(String.class);
 
         return result;
     }
