@@ -7,8 +7,12 @@ public class Main {
 
     public static void main(String[] args){
 
+        String parameter[] = new String[3];
+        parameter[0] = "http://localhost:4434";
+        parameter[1] = "10";
+
         Main main = new Main();
-        main.start(args);
+        main.start(parameter);
     }
 
 
