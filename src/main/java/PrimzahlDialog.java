@@ -13,6 +13,7 @@ public class PrimzahlDialog
 
     private boolean start()
     {
+        PrimzahlService primzahlService = new PrimzahlService();
         System.out.println("Hallo,\ndieses Programm berechnet aufsteigend alle Primzahlen, bis zu einem gewünschten Wert");
         System.out.println("Zum Beenden des Programmes kann jederzeit -1 eingegeben werden");
         int primzahlen = -1;
@@ -80,10 +81,10 @@ public class PrimzahlDialog
                 switch(eingabeVerarbeitung)
                 {
                     case 1://Ausgabe als String
-                        Primzahl.getPrimzahlenAsString(primzahlen);
+                        //primzahlService.
                         break;
                     case 2: //Ausgabe als Int Array
-                        Primzahl.getPrimzahlenAsArray(primzahlen);
+                        //primzahlService.
                         break;
                     case 3: //Ausgabe als ....
 

@@ -10,6 +10,7 @@ public class Main {
         String parameter[] = new String[3];
         parameter[0] = "http://localhost:4434";
         parameter[1] = "10";
+        parameter[2] = "3";
 
         Main main = new Main();
         main.start(parameter);
@@ -37,7 +38,7 @@ public class Main {
 
         if(args.length >= 2){
             PrimzahlService primzahlService = new PrimzahlService();
-            String result = primzahlService.request(args[0],Integer.parseInt(args[1]));
+            String result = primzahlService.request(args[0],Integer.parseInt(args[1]),Integer.parseInt(args[2]));
             System.out.println(result);
         }
 
