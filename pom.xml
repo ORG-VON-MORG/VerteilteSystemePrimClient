@@ -7,6 +7,7 @@
     <groupId>de.htwsaar.vs.primzahlclient</groupId>
     <artifactId>primzahlClient</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 <dependencies>
     <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
     <dependency>
