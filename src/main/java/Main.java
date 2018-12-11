@@ -1,32 +1,29 @@
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        TestPrimzahlClient.test();
-
+       // TestPrimzahlClient.test();
+//
+//        String parameter[] = new String[3];
+//        parameter[0] = "http://localhost:4434";
+//        parameter[1] = "10";
+//        parameter[2] = "2";
         String parameter[] = new String[3];
-        parameter[0] = "http://localhost:4434";
-        parameter[1] = "10";
-        parameter[2] = "2";
+        Main main = new Main();
 
-       // Main main = new Main();
-        //main.start1(args);
-//        try {
-//            main.start();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        main.start1(args);
 
-        //main.start(parameter);
+
+
+       try { main.start(parameter);
+      } catch (IOException e) {
+           e.printStackTrace();
+       }
+
     }
 
 
@@ -55,7 +52,7 @@ public class Main {
 
     }
 
-    private void start() throws IOException {
+    private void start(String[] parameter) throws IOException {
         PrimzahlService  primzahlService = new PrimzahlService();
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
@@ -84,17 +81,18 @@ public class Main {
                 System.out.println("Bitte positive Zahl zur Berechnung eingeben");
             }
 
-        }
+
 
         System.out.println("Geben Sie bitte ein, in welcher Form die Ausgabe erfolgen soll");
         System.out.println("Geben Sie 1 ein, um die Augabe in einem String zu erhalten");
         System.out.println("Geben Sie 2 ein, um die Ausgabe in einem Int Array zu erhalten");
         System.out.println("Geben Sie 3 ein, um die Ausgaben in einem ... zu erhalten");
 
-        String eingabe_2 = br.readLine();
+
         returnFormat = Integer.parseInt(eingabe_2);
-
-
+        String endpoint = eingabe_2;
+        String baseurl = eingabe_2;
+        int parameter_2 = Integer.parseInt(eingabe_2);
         if (returnFormat >= 0) {
             System.out.println("Die ersten " + prims + " Primzahlen werden ausgegeben.");
         } else if (returnFormat == -1) {
@@ -106,23 +104,23 @@ public class Main {
 
 
         switch (returnFormat) {
-            case 1:
+            case 1://Ausgabe als Int Array
+                primzahlService.request(endpoint, baseurl, parameter_2, returnFormat);
+                break;
+            case 2: //Ausgabe als String
 
                 break;
-            case 2: //Ausgabe als Int Array
-
-                break;
-            case 3: //Ausgabe als ....
+            case 3: //Ausgabe als Datenstruktur
 
             case -1: //Beenden
                 function = false;
 
         }
 
-    }
+    }}}
 
 
- }
+
 
 
 
